@@ -41,12 +41,12 @@ server.post("/api-todo/crear", async  (peticion,respuesta,siguiente) => {
 });
 
 server.put("/api-todo/crear", (peticion,respuesta) => {
-
+    respuesta.send("metodo PUT");
 });
 
 server.delete("/api-todo/borrar/:id", async (peticion,respuesta) => {
     try{
-        let cantidad = await borrarColor(peticion.params.id);
+        let cantidad = await borrarTarea(peticion.params.id);
 
         respuesta.json({resultado : cantidad > 0 ? "ok"  : "ko"});
 
