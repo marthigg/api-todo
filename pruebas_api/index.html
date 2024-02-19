@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+
+        /*let tarea = "aprender React";*/
+
+        fetch("/api-todo", {
+            method :  "POST"
+        })
+        .then(respuesta => respuesta.text())
+        .then(respuesta => console.log(respuesta));
+
+
+    </script>
 </body>
 </html>
