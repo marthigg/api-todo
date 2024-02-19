@@ -50,7 +50,6 @@ server.delete("/api-todo/borrar/:id", async (peticion,respuesta) => {
 
         respuesta.json({resultado : cantidad > 0 ? "ok"  : "ko"});
 
-
     }catch(error){
         
         respuesta.status(500);

@@ -8,14 +8,14 @@
 <body>
     <script>
 
-        let tarea = "aprender React";
+        let tarea = "repasar React";
 
-        fetch("/api-todo/crear", {
-            method :  "POST",
-            body : JSON.stringify({tarea}),
+        fetch("/api-todo/borrar/2", {
+            method :  "DELETE",
+            /*body : JSON.stringify({tarea}),
             headers : {
                 "Content-type" : "application/json"
-            }
+            }*/
         })
         .then(respuesta => respuesta.text())
         .then(respuesta => console.log(respuesta));
