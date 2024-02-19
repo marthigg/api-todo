@@ -1,14 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const {getTareas,crearTarea,borrarTarea} = require("./db");
-/*const {json} = require{"body-parser"};*/
+const {json} = require("body-parser");
 
 
 const server = express();
 
-/*server.use(json());*/
+server.use(json());
 
 server.use("/pruebas",express.static("./pruebas_api"));
+
 
 server.get("/api-todo/crear", async (peticion,respuesta) => {
     try{
@@ -43,12 +44,18 @@ server.put("/api-todo/crear", (peticion,respuesta) => {
 
 });
 
-server.delete("/api-todo/crear", (peticion,respuesta) => {
+server.delete("/api-todo/borrar/:id", (peticion,respuesta) => {
 
 });
 
 server.use((peticion,respuesta) => {
+    respuesta.status(404);
     respuesta.json({ error : "not found" });
+});
+
+server.use((error,peticion,respuesta,siguiente) => {
+    respuesta.status(400);
+    respuesta.json({ error : "petición no válida" });
 });
 
 
