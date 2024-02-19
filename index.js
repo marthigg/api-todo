@@ -44,8 +44,19 @@ server.put("/api-todo/crear", (peticion,respuesta) => {
 
 });
 
-server.delete("/api-todo/borrar/:id", (peticion,respuesta) => {
+server.delete("/api-todo/borrar/:id", async (peticion,respuesta) => {
+    try{
+        let cantidad = await borrarColor(peticion.params.id);
 
+        respuesta.json({resultado : cantidad > 0 ? "ok"  : "ko"});
+
+
+    }catch(error){
+        
+        respuesta.status(500);
+
+        respuesta.json(error);
+    }
 });
 
 server.use((peticion,respuesta) => {
