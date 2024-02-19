@@ -1,13 +1,24 @@
 require("dotenv").config();
 const express = require("express");
+const {getTareas,crearTarea,borrarTarea} = require("./db");
+/*const {json} = require{"body-parser"};*/
 
 
 const server = express();
 
+/*server.use(json());*/
+
 server.use("/pruebas",express.static("./pruebas_api"));
 
-server.get("/api-todo/crear", (peticion,respuesta) => {
+server.get("/api-todo/crear", async (peticion,respuesta) => {
+    try{
+        let tareas = await getTareas();
 
+        respuesta.json(tareas);
+    }catch(error){
+        respuesta.status(500);
+        return respuesta.json(error);
+    }
 });
 
 server.post("/api-todo/crear", async  (peticion,respuesta,siguiente) => {
