@@ -2,9 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const {getTareas,crearTarea,borrarTarea,actualizarEstado,actualizarTexto} = require("./db");
 const {json} = require("body-parser");
+const cors = require("cors");
 
 
 const server = express();
+
+server.use(cors());
 
 server.use(json());
 
