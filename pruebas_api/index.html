@@ -8,10 +8,10 @@
 <body>
     <script>
 
-        let tarea = "salir a merendar";
+        let tarea = "estudiar para el examen";
 
-        fetch("/api-todo/actualizar/1/1", {
-            method :  "PUT",
+        fetch("/api-todo/crear", {
+            method :  "POST",
             body : JSON.stringify({tarea}),
             headers : {
                 "Content-type" : "application/json"
