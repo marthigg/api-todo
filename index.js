@@ -14,7 +14,7 @@ server.use(json());
 server.use("/pruebas",express.static("./pruebas_api"));
 
 
-server.get("/api-todo/crear", async (peticion,respuesta) => {
+server.get("/api-todo", async (peticion,respuesta) => {
     try{
         let tareas = await getTareas();
 

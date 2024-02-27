@@ -8,14 +8,14 @@
 <body>
     <script>
 
-        /*let tarea = "ir al gym";*/
+        let tarea = "comprar cafe";
 
-        fetch("/api-todo/crear", {
-            method :  "GET",
-            /*body : JSON.stringify({tarea}),
+        fetch("/api-todo/actualizar/6/2", {
+            method :  "PUT",
+            body : JSON.stringify({tarea}),
             headers : {
                 "Content-type" : "application/json"
-            }*/
+            }
         })
         .then(respuesta => respuesta.text())
         .then(respuesta => console.log(respuesta));
