@@ -11,7 +11,7 @@ server.use(cors());
 
 server.use(json());
 
-server.use("/pruebas",express.static("./pruebas_api"));
+server.use(express.static("./estaticos"));
 
 
 server.get("/api-todo", async (peticion,respuesta) => {
